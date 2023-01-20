@@ -30,7 +30,6 @@ export default function Home() {
     const parsedResults = chrono.parse(input, referenceDate, {
       forwardDate: true,
     });
-    console.log("chrono results: ", parsedResults);
 
     //removing stop words from the task name
     const oldTaskStrings = input.slice(0, parsedResults[0]?.index).split(" ");
@@ -66,14 +65,14 @@ export default function Home() {
       task: taskString,
       completed: false,
     };
-    if (todoItem.day == "undefined") {
-      console.log(todoItem.time);
+    if (todoItem.day == undefined) {
+      // console.log(todoItem.time);
       todoItem.day = "No Deadline";
       todoItem.time = "";
     }
     setTodos([...todos, todoItem]);
     setInput("");
-    localStorage.setItem("todos", JSON.stringify(todos));
+    localStorage.setItem("todos", JSON.stringify([...todos, todoItem]));
   };
 
   const handleKeyUp = (e) => {
@@ -89,8 +88,8 @@ export default function Home() {
       "todos",
       JSON.stringify(todos.filter((todo) => todo.id != id))
     );
-    console.log("deleted item with id: ", id);
-    console.log(todos);
+    // console.log("deleted item with id: ", id);
+    // console.log(todos);
   };
 
   const handleCompleted = (id) => {
@@ -102,8 +101,8 @@ export default function Home() {
     }
     setTodos(todosCopy);
     localStorage.setItem("todos", JSON.stringify(todosCopy));
-    console.log("completed toggled item with id: ", id);
-    console.log(todos);
+    // console.log("completed toggled item with id: ", id);
+    // console.log(todos);
   };
 
   if (!hydrated) return null;
@@ -154,10 +153,11 @@ export default function Home() {
                       className="input input-bordered w-3/4 input-md font-montserrat ml-3"
                       onChange={(e) => {
                         setInput(e.target.value);
-                        console.log(e.target.value);
+                        // console.log(e.target.value);
                       }}
                       onKeyUp={handleKeyUp}
                       value={input}
+                      autoFocus={true}
                     />
                     <button
                       className="btn btn-primary btn-md font-montserrat ml-3 py-2"
