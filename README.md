@@ -2,10 +2,10 @@
 
 > TodoFirst is a NLP based To do list application which smartly recognises the deadline for a task and displays it in the application.
 
-## Other features 
- - reorder the tasks
- - edit the task details
- - task priority
+## Other features to be added in future
+ - Reorder the tasks
+ - Edit the task details
+ - Task priority
 
 ## Getting Started
 Clone this repository, 
