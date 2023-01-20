@@ -8,8 +8,12 @@
  - task priority
 
 ## Getting Started
+Clone this repository, 
+```bash
+git clone https://github.com/sadityakumar9211/todofirst-nlp ./ 
+```
 
-First, run the development server:
+Run the development server:
 
 ```bash
 yarn dev
