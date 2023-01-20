@@ -36,6 +36,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["postcss", "npm:8.4.21"],\
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:ca47374607bd1d0fc6b2dd185ae65c28ad471ee6983fdf51a2a56a8969f20a7dfa8a3e3a83c599dead3435a18b27e844469d614af998dd790998bcf1b5b72b15#npm:18.2.0"],\
+            ["stopword", "npm:2.0.6"],\
             ["tailwindcss", "virtual:ca47374607bd1d0fc6b2dd185ae65c28ad471ee6983fdf51a2a56a8969f20a7dfa8a3e3a83c599dead3435a18b27e844469d614af998dd790998bcf1b5b72b15#npm:3.2.4"]\
           ],\
           "linkType": "SOFT"\
@@ -2065,6 +2066,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["stopword", [\
+        ["npm:2.0.6", {\
+          "packageLocation": "./.yarn/cache/stopword-npm-2.0.6-1d76a0fbd1-3e357eb894.zip/node_modules/stopword/",\
+          "packageDependencies": [\
+            ["stopword", "npm:2.0.6"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["string-width", [\
         ["npm:4.2.3", {\
           "packageLocation": "./.yarn/cache/string-width-npm-4.2.3-2c27177bae-e52c10dc3f.zip/node_modules/string-width/",\
@@ -2219,6 +2229,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["postcss", "npm:8.4.21"],\
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:ca47374607bd1d0fc6b2dd185ae65c28ad471ee6983fdf51a2a56a8969f20a7dfa8a3e3a83c599dead3435a18b27e844469d614af998dd790998bcf1b5b72b15#npm:18.2.0"],\
+            ["stopword", "npm:2.0.6"],\
             ["tailwindcss", "virtual:ca47374607bd1d0fc6b2dd185ae65c28ad471ee6983fdf51a2a56a8969f20a7dfa8a3e3a83c599dead3435a18b27e844469d614af998dd790998bcf1b5b72b15#npm:3.2.4"]\
           ],\
           "linkType": "SOFT"\

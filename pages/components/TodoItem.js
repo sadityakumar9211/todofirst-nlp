@@ -1,16 +1,11 @@
 import { useState } from "react";
 
 export default function TodoItem(props) {
-  const [completed, setCompleted] = useState(false);
-  const handleCompleted = (e) => {
-    setCompleted(!completed);
-  };
-
   return (
     <div className="flex flex-ro mt-1 items-center px-2 py-1 rounded-lg">
       <div className="ml-3">
         <div
-          className={props.todoItem.completed ? "line-through w-48 text-md" : "w-48 text-md"}
+          className={props.todoItem.completed ? "line-through w-48 text-md capitalize" : "w-48 text-md capitalize"}
         >
           {props.todoItem.task}
         </div>

@@ -1734,6 +1734,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"stopword@npm:^2.0.6":
+  version: 2.0.6
+  resolution: "stopword@npm:2.0.6"
+  checksum: 3e357eb894aa60cae8ead8d13dd48c4e5962c8747f18b6bd7e182c5ce5d78445157d2cef7f93cfceee451f9f14ce5c81b43cf6fa42a3af8159b4fe2611da6a94
+  languageName: node
+  linkType: hard
+
 "string-width@npm:^1.0.2 || 2 || 3 || 4, string-width@npm:^4.2.3":
   version: 4.2.3
   resolution: "string-width@npm:4.2.3"
@@ -1857,6 +1864,7 @@ __metadata:
     postcss: ^8.4.21
     react: 18.2.0
     react-dom: 18.2.0
+    stopword: ^2.0.6
     tailwindcss: ^3.2.4
   languageName: unknown
   linkType: soft

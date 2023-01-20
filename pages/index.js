@@ -3,6 +3,8 @@ import { day, date, time } from "../utils/date_time";
 import { useState, useEffect } from "react";
 import TodoItem from "./components/TodoItem";
 import * as chrono from "chrono-node";
+import { removeStopwords } from "stopword";
+import { to12Hours } from "../utils/to12Hours";
 
 export default function Home() {
   // removing the hydration error
@@ -11,28 +13,67 @@ export default function Home() {
     setHydrated(true);
   }, []);
 
+  const ISSERVER = typeof window === "undefined";
+
   const [input, setInput] = useState("");
-  let [todos, setTodos] = useState([]);
+  let [todos, setTodos] = useState(
+    !ISSERVER && localStorage.getItem("todos")
+      ? JSON.parse(localStorage.getItem("todos"))
+      : []
+  );
 
   const handleSubmit = (e) => {
     if (input == "") return;
 
     // NLP parsing
     const referenceDate = new Date();
-    const parsedResults = chrono.parse(input, referenceDate, {forwardDate: true});
-    console.log("chrono results: ", parsedResults)
+    const parsedResults = chrono.parse(input, referenceDate, {
+      forwardDate: true,
+    });
+    console.log("chrono results: ", parsedResults);
+
+    //removing stop words from the task name
+    const oldTaskStrings = input.slice(0, parsedResults[0]?.index).split(" ");
+    const newTaskString = removeStopwords(oldTaskStrings, [
+      "by",
+      "BY",
+      "By",
+      "The",
+      "the",
+      "THE",
+      "a",
+      "A",
+      "from",
+      "From",
+      "FROM",
+      "at",
+      "AT",
+      "At",
+      "in",
+      "IN",
+      "In",
+      "for",
+      "For",
+      "FOR",
+    ]);
+    const taskString = newTaskString.join(" ");
     const todoItem = {
       id: Date.now(),
       day: parsedResults[0]?.start.date().toString().slice(0, 15),
-      time: parsedResults[0]?.start.date().toLocaleTimeString().slice(0,5),
-      task: input.slice(0, parsedResults[0]?.index),
+      time: to12Hours(
+        parsedResults[0]?.start.date().toLocaleTimeString().slice(0, 5)
+      ),
+      task: taskString,
       completed: false,
     };
-    if (todoItem.day == "undefined"){
-      todoItem.day = "No Deadline"
+    if (todoItem.day == "undefined") {
+      console.log(todoItem.time);
+      todoItem.day = "No Deadline";
+      todoItem.time = "";
     }
     setTodos([...todos, todoItem]);
     setInput("");
+    localStorage.setItem("todos", JSON.stringify(todos));
   };
 
   const handleKeyUp = (e) => {
@@ -43,6 +84,11 @@ export default function Home() {
 
   const handleDelete = (id) => {
     setTodos(todos.filter((todo) => todo.id != id));
+
+    localStorage.setItem(
+      "todos",
+      JSON.stringify(todos.filter((todo) => todo.id != id))
+    );
     console.log("deleted item with id: ", id);
     console.log(todos);
   };
@@ -55,6 +101,7 @@ export default function Home() {
       }
     }
     setTodos(todosCopy);
+    localStorage.setItem("todos", JSON.stringify(todosCopy));
     console.log("completed toggled item with id: ", id);
     console.log(todos);
   };
@@ -136,7 +183,7 @@ export default function Home() {
                       ))
                     ) : (
                       <div className="font-russo text-gray-600 text-center pt-4">
-                        No Todos
+                        Wow Such Empty 🤙
                       </div>
                     )}
                   </div>
