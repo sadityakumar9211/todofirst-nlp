@@ -7,7 +7,7 @@ export default function TodoItem(props) {
         <div
           className={
             props.todoItem?.completed
-              ? "line-through w-52 text-md capitalize"
+              ? "line-through text-gray-700 w-52 text-md capitalize"
               : "w-52 text-md capitalize"
           }
         >
