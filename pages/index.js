@@ -25,7 +25,10 @@ export default function Home() {
         />
       </Head>
       <main className="text-2xl flex justify-center">
-        <div className="font-montserrat">Hello</div>
+        <div className="">
+          <div>Todo</div>
+          <div>Card</div>
+        </div>
       </main>
     </>
   );
