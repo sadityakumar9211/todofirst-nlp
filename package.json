@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@next/font": "13.1.2",
+    "chrono-node": "^2.5.0",
     "daisyui": "^2.47.0",
     "next": "13.1.2",
     "react": "18.2.0",

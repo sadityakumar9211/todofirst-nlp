@@ -425,6 +425,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"chrono-node@npm:^2.5.0":
+  version: 2.5.0
+  resolution: "chrono-node@npm:2.5.0"
+  dependencies:
+    dayjs: ^1.10.0
+  checksum: 810681d3f14ce790a6f22afc269f407d8b0708239c4a255eb1a0a065c0234524d771d2dd01c438c1bd73843989bc8ac95b788d53d7a6a1116d2f891ce2e51238
+  languageName: node
+  linkType: hard
+
 "clean-stack@npm:^2.0.0":
   version: 2.2.0
   resolution: "clean-stack@npm:2.2.0"
@@ -529,6 +538,13 @@ __metadata:
     autoprefixer: ^10.0.2
     postcss: ^8.1.6
   checksum: a901337f5ef8abfe02062bdd0571a1352fd384569605d535f4e930bfcfff09c0b7594f7d89c1cc94deb79dc47049b5c89555cabc07a9d26ab493efa84fa76342
+  languageName: node
+  linkType: hard
+
+"dayjs@npm:^1.10.0":
+  version: 1.11.7
+  resolution: "dayjs@npm:1.11.7"
+  checksum: 5003a7c1dd9ed51385beb658231c3548700b82d3548c0cfbe549d85f2d08e90e972510282b7506941452c58d32136d6362f009c77ca55381a09c704e9f177ebb
   languageName: node
   linkType: hard
 
@@ -1835,6 +1851,7 @@ __metadata:
   dependencies:
     "@next/font": 13.1.2
     autoprefixer: ^10.4.13
+    chrono-node: ^2.5.0
     daisyui: ^2.47.0
     next: 13.1.2
     postcss: ^8.4.21

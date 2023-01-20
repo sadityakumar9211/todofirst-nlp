@@ -30,6 +30,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["@next/font", "npm:13.1.2"],\
             ["autoprefixer", "virtual:ca47374607bd1d0fc6b2dd185ae65c28ad471ee6983fdf51a2a56a8969f20a7dfa8a3e3a83c599dead3435a18b27e844469d614af998dd790998bcf1b5b72b15#npm:10.4.13"],\
+            ["chrono-node", "npm:2.5.0"],\
             ["daisyui", "virtual:ca47374607bd1d0fc6b2dd185ae65c28ad471ee6983fdf51a2a56a8969f20a7dfa8a3e3a83c599dead3435a18b27e844469d614af998dd790998bcf1b5b72b15#npm:2.47.0"],\
             ["next", "virtual:ca47374607bd1d0fc6b2dd185ae65c28ad471ee6983fdf51a2a56a8969f20a7dfa8a3e3a83c599dead3435a18b27e844469d614af998dd790998bcf1b5b72b15#npm:13.1.2"],\
             ["postcss", "npm:8.4.21"],\
@@ -536,6 +537,16 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["chrono-node", [\
+        ["npm:2.5.0", {\
+          "packageLocation": "./.yarn/cache/chrono-node-npm-2.5.0-d822cee790-810681d3f1.zip/node_modules/chrono-node/",\
+          "packageDependencies": [\
+            ["chrono-node", "npm:2.5.0"],\
+            ["dayjs", "npm:1.11.7"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["clean-stack", [\
         ["npm:2.2.0", {\
           "packageLocation": "./.yarn/cache/clean-stack-npm-2.2.0-a8ce435a5c-2ac8cd2b2f.zip/node_modules/clean-stack/",\
@@ -668,6 +679,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             "@types/postcss",\
             "autoprefixer",\
             "postcss"\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["dayjs", [\
+        ["npm:1.11.7", {\
+          "packageLocation": "./.yarn/cache/dayjs-npm-1.11.7-d5cd5b2919-5003a7c1dd.zip/node_modules/dayjs/",\
+          "packageDependencies": [\
+            ["dayjs", "npm:1.11.7"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -2193,6 +2213,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["todolist", "workspace:."],\
             ["@next/font", "npm:13.1.2"],\
             ["autoprefixer", "virtual:ca47374607bd1d0fc6b2dd185ae65c28ad471ee6983fdf51a2a56a8969f20a7dfa8a3e3a83c599dead3435a18b27e844469d614af998dd790998bcf1b5b72b15#npm:10.4.13"],\
+            ["chrono-node", "npm:2.5.0"],\
             ["daisyui", "virtual:ca47374607bd1d0fc6b2dd185ae65c28ad471ee6983fdf51a2a56a8969f20a7dfa8a3e3a83c599dead3435a18b27e844469d614af998dd790998bcf1b5b72b15#npm:2.47.0"],\
             ["next", "virtual:ca47374607bd1d0fc6b2dd185ae65c28ad471ee6983fdf51a2a56a8969f20a7dfa8a3e3a83c599dead3435a18b27e844469d614af998dd790998bcf1b5b72b15#npm:13.1.2"],\
             ["postcss", "npm:8.4.21"],\

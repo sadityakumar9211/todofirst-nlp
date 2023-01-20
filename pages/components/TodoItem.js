@@ -15,7 +15,7 @@ export default function TodoItem(props) {
           {props.todoItem.task}
         </div>
         <div className="text-xs text-gray-400">
-          {props.todoItem.day} at {props.todoItem.time}
+          {props.todoItem.day}  {props.todoItem.time}
         </div>
       </div>
 

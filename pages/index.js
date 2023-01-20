@@ -2,6 +2,7 @@ import Head from "next/head";
 import { day, date, time } from "../utils/date_time";
 import { useState, useEffect } from "react";
 import TodoItem from "./components/TodoItem";
+import * as chrono from "chrono-node";
 
 export default function Home() {
   // removing the hydration error
@@ -15,13 +16,21 @@ export default function Home() {
 
   const handleSubmit = (e) => {
     if (input == "") return;
+
+    // NLP parsing
+    const referenceDate = new Date();
+    const parsedResults = chrono.parse(input, referenceDate, {forwardDate: true});
+    console.log("chrono results: ", parsedResults)
     const todoItem = {
       id: Date.now(),
-      time: "12:00 PM",
-      day: "Today",
-      task: input,
+      day: parsedResults[0]?.start.date().toString().slice(0, 15),
+      time: parsedResults[0]?.start.date().toLocaleTimeString().slice(0,5),
+      task: input.slice(0, parsedResults[0]?.index),
       completed: false,
     };
+    if (todoItem.day == "undefined"){
+      todoItem.day = "No Deadline"
+    }
     setTodos([...todos, todoItem]);
     setInput("");
   };
@@ -71,7 +80,7 @@ export default function Home() {
         />
       </Head>
       <main className="flex h-screen flex-col items-center sm:flex-row">
-        <div className="mx-auto font-inter text-3xl md:text-6xl text-blue-600 font-bold">
+        <div className="mx-auto font-inter text-3xl md:text-6xl text-blue-600 font-black ">
           TodoFirst
         </div>
         <div className="mx-auto font-inter">
