@@ -5,7 +5,7 @@ export default function TodoItem(props) {
     <div className="flex flex-ro mt-1 items-center px-2 py-1 rounded-lg">
       <div className="ml-3">
         <div
-          className={props.todoItem.completed ? "line-through w-48 text-md capitalize" : "w-48 text-md capitalize"}
+          className={props.todoItem.completed ? "line-through w-52 text-md capitalize" : "w-52 text-md capitalize"}
         >
           {props.todoItem.task}
         </div>
