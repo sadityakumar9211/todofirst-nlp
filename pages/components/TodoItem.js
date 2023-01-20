@@ -6,16 +6,16 @@ export default function TodoItem(props) {
       <div className="ml-3">
         <div
           className={
-            props.todoItem.completed
+            props.todoItem?.completed
               ? "line-through w-52 text-md capitalize"
               : "w-52 text-md capitalize"
           }
         >
-          {props.todoItem.task == "" ? "Empty Task" : props.todoItem.task}
+          {props.todoItem?.task == "" ? "Empty Task" : props.todoItem?.task}
         </div>
         <div className="text-xs text-gray-400">
-          {props.todoItem.deadline?.toString().slice(0, 15) || "No deadline"}{" "}
-          {props.todoItem.deadline && to12Hours(props.todoItem.deadline?.toLocaleTimeString().slice(0, 5))}
+          {props.todoItem?.deadline?.toString().slice(0, 15) || "No deadline"}{" "}
+          {props.todoItem?.deadline && to12Hours(props.todoItem.deadline?.toLocaleTimeString().slice(0, 5))}
         </div>
       </div>
 

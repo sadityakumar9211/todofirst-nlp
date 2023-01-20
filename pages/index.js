@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import TodoItem from "./components/TodoItem";
 import * as chrono from "chrono-node";
 import { removeStopwords } from "stopword";
+import Image from "next/image";
 
 export default function Home() {
   // removing the hydration error
@@ -138,12 +139,14 @@ export default function Home() {
           rel="stylesheet"
         />
       </Head>
-      <main className="flex h-screen flex-col items-center sm:flex-row">
-        <div className="flex flex-row items-center md:mt-0 mt-20 mb-10 md:mb-0 md:ml-20">
-          <img
+      <main className="flex h-screen flex-col items-center sm:flex-row justify-around">
+        <div className="flex flex-col items-center md:mt-0 mt-20 mb-10 md:mb-0 md:ml-20 justify-center">
+          <Image
             src="/images/todoicon.png"
             alt="To Do Icon"
-            className="w-20 md:w-40 rounded-full"
+            width={120}
+            height={120}
+            className="rounded-full w-40 mb-5"
           />
           <div className="mx-auto font-montserrat text-3xl md:text-6xl text-blue-600 font-black md:ml-6">
             TodoFirst
@@ -152,9 +155,11 @@ export default function Home() {
         <div className="mx-auto font-inter">
           <div className="card w-96 bg-base-100 shadow-xl">
             <figure>
-              <img
+              <Image
                 src="/images/todoimage.jpg"
                 alt="Abstract Image"
+                width={500}
+                height={500}
                 className="z-40 h-56 w-80 rounded-xl shadow-md blur-xs"
               />
               <div className="absolute right-12 top-36 z-50 font-inter text-gray-700">
