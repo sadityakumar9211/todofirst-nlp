@@ -1,10 +1,9 @@
 import Head from "next/head";
-import { day, date, time } from "../utils/date_time";
+import getClockInfo from "../utils/date_time";
 import { useState, useEffect } from "react";
 import TodoItem from "./components/TodoItem";
 import * as chrono from "chrono-node";
 import { removeStopwords } from "stopword";
-import { to12Hours } from "../utils/to12Hours";
 
 export default function Home() {
   // removing the hydration error
@@ -21,6 +20,16 @@ export default function Home() {
       ? JSON.parse(localStorage.getItem("todos"))
       : []
   );
+
+  //changing the clock time
+  const [time, setTime] = useState(getClockInfo().time);
+  const [day, setDay] = useState(getClockInfo().day);
+  const [date, setDate] = useState(getClockInfo().date);
+  setInterval(() => {
+    setTime(getClockInfo().time);
+    setDay(getClockInfo().day);
+    setDate(getClockInfo().date);
+  }, 1000);
 
   const handleSubmit = (e) => {
     if (input == "") return;
@@ -66,18 +75,14 @@ export default function Home() {
     const taskString = newTaskString.join(" ");
     const todoItem = {
       id: Date.now(),
-      day: parsedResults[0]?.start.date().toString().slice(0, 15),
-      time: to12Hours(
-        parsedResults[0]?.start.date().toLocaleTimeString().slice(0, 5)
-      ),
+      deadline: parsedResults[0]?.start.date(),
+      // day: parsedResults[0]?.start.date().toString().slice(0, 15),
+      // time: to12Hours(
+      //   parsedResults[0]?.start.date().toLocaleTimeString().slice(0, 5)
+      // ),
       task: taskString,
       completed: false,
     };
-    if (todoItem.day == undefined) {
-      // console.log(todoItem.time);
-      todoItem.day = "No Deadline";
-      todoItem.time = "";
-    }
     setTodos([...todos, todoItem]);
     setInput("");
     localStorage.setItem("todos", JSON.stringify([...todos, todoItem]));
@@ -134,11 +139,15 @@ export default function Home() {
         />
       </Head>
       <main className="flex h-screen flex-col items-center sm:flex-row">
-        <div className="flex flex-row items-center md:mt-0 mt-40 md:ml-20">
-          <img src="/images/todoicon.png" alt="To Do Icon" className="w-20 md:w-40 rounded-full"/>
+        <div className="flex flex-row items-center md:mt-0 mt-20 mb-10 md:mb-0 md:ml-20">
+          <img
+            src="/images/todoicon.png"
+            alt="To Do Icon"
+            className="w-20 md:w-40 rounded-full"
+          />
           <div className="mx-auto font-montserrat text-3xl md:text-6xl text-blue-600 font-black md:ml-6">
-          TodoFirst
-        </div>
+            TodoFirst
+          </div>
         </div>
         <div className="mx-auto font-inter">
           <div className="card w-96 bg-base-100 shadow-xl">
@@ -148,7 +157,7 @@ export default function Home() {
                 alt="Abstract Image"
                 className="z-40 h-56 w-80 rounded-xl shadow-md blur-xs"
               />
-              <div className="absolute right-20 top-36 z-50 font-inter text-gray-700">
+              <div className="absolute right-12 top-36 z-50 font-inter text-gray-700">
                 <div className="text-md text-end font-russo">
                   {day} {date}
                 </div>
