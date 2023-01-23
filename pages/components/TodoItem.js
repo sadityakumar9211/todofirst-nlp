@@ -3,7 +3,7 @@ import { to12Hours } from "../../utils/to12Hours";
 export default function TodoItem(props) {
   // console.log(props.todoItem.deadline)
 
-  const time = new Date(`${props.todoItem.deadline}`).toLocaleTimeString()
+  const time = new Date(`${props.todoItem?.deadline}`)?.toLocaleTimeString()
   return (
     <div className="flex flex-ro mt-1 items-center px-2 py-1 rounded-lg">
       <div className="ml-3">
