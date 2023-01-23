@@ -2,6 +2,9 @@
 
 > TodoFirst is a NLP based To do list application which smartly recognises the deadline for a task and displays it in the application.
 
+> This application is currently deployed on https://todonlp.vercel.app
+
+
 ## Other features to be added in future
  - Reorder the tasks
  - Edit the task details
