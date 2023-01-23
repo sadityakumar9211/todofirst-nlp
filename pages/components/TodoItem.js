@@ -2,7 +2,9 @@ import { to12Hours } from "../../utils/to12Hours";
 
 export default function TodoItem(props) {
   // console.log(props.todoItem.deadline)
-  const time = new Date(`${props.todoItem?.deadline}`)?.toLocaleTimeString()
+  const deadline = props.todoItem?.deadline;
+  const date = new Date(deadline).toDateString()
+  const time = new Date(deadline).toLocaleTimeString()
 
   return (
     <div className="flex flex-ro mt-1 items-center px-2 py-1 rounded-lg">
@@ -17,17 +19,18 @@ export default function TodoItem(props) {
           {props.todoItem?.task == "" ? "Empty Task" : props.todoItem?.task}
         </div>
         <div className="text-xs text-gray-400">
-          {props.todoItem?.deadline?.toString().slice(0, 15) || "No deadline"}{" "}
+          {deadline == "undefined"? "No deadline": date}{" "}
           {props.todoItem?.deadline && to12Hours(time)}
         </div>
       </div>
 
       <input
         type="checkbox"
-        className="checkbox checkbox-warning ml-3 checkbox-sm"
+        className={props.todoItem?.completed ? "checkbox checkbox-warning ml-3 checkbox-sm" : "checkbox checkbox-warning ml-3 checkbox-sm"}
         onClick={() => {
           props.handleCompleted(props.todoItem.id);
         }}
+        checked={props.todoItem?.completed}
       />
       <div
         className="text-red-700 items-center ml-4"
