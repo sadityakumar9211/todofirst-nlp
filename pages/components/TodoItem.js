@@ -1,6 +1,9 @@
 import { to12Hours } from "../../utils/to12Hours";
 
 export default function TodoItem(props) {
+  // console.log(props.todoItem.deadline)
+
+  const time = new Date(`${props.todoItem.deadline}`).toLocaleTimeString()
   return (
     <div className="flex flex-ro mt-1 items-center px-2 py-1 rounded-lg">
       <div className="ml-3">
@@ -15,7 +18,7 @@ export default function TodoItem(props) {
         </div>
         <div className="text-xs text-gray-400">
           {props.todoItem?.deadline?.toString().slice(0, 15) || "No deadline"}{" "}
-          {props.todoItem?.deadline && to12Hours(props.todoItem.deadline?.toLocaleTimeString().slice(0, 5))}
+          {props.todoItem?.deadline && to12Hours(time)}
         </div>
       </div>
 

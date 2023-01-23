@@ -1,7 +1,7 @@
 function to12Hours(time24) {
   if (time24 == "undefined") return "undefined"
 
-  let hour = parseInt(time24);
+  let hour = parseInt(time24.slice(0, 2));
   let minutes = time24?.slice(3, 5);
   if (hour == 12) {
     return `12:${minutes} PM`;
